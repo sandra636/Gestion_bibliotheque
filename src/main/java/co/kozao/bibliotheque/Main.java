@@ -1,9 +1,13 @@
 package co.kozao.bibliotheque;
 
+import co.kozao.bibliotheque.database.DatabaseConnection;
+
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// on teste la connexion
+        DatabaseConnection.getConnection();
+        DatabaseConnection.closeConnection();
 
 	}
 

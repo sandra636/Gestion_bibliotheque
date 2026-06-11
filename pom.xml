@@ -1,6 +1,49 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+  https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <!-- Identité du projet -->
   <modelVersion>4.0.0</modelVersion>
-  <groupId>co.kozao.gestion</groupId>
-  <artifactId>gestionn_biblitheque</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <groupId>co.kozao.bibliotheque</groupId>       <!-- organisation -->
+  <artifactId>gestion-bibliotheque</artifactId>   <!-- nom du projet -->
+  <version>1.0.0</version>                        <!-- version -->
+
+  <!-- Configuration Java et encodage -->
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>          <!-- compiler en Java 1.8 -->
+    <maven.compiler.target>1.8</maven.compiler.target>          <!-- générer du bytecode Java 1.8 -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> <!-- support des accents -->
+  </properties>
+
+  <!-- Bibliothèques externes nécessaires au projet -->
+  <dependencies>
+    <dependency>
+      <!-- Connecteur JDBC pour communiquer avec MySQL depuis Java -->
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.33</version>
+    </dependency>
+  </dependencies>
+
+  <!-- Configuration de la construction du projet -->
+  <build>
+    <plugins>
+      <plugin>
+        <!-- Plugin qui crée le fichier .jar exécutable -->
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.3.0</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <!-- Classe principale à lancer avec java -jar -->
+              <mainClass>co.kozao.bibliotheque.Main</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
 </project>

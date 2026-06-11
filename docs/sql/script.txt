@@ -1,0 +1,55 @@
+CREATE TABLE Bibliothecaire(
+   id INT,
+   nom VARCHAR(50)  NOT NULL,
+   email VARCHAR(50)  NOT NULL,
+   motDepasse VARCHAR(50)  NOT NULL,
+   PRIMARY KEY(id)
+);
+
+CREATE TABLE Adherent(
+   id INT,
+   nom VARCHAR(50)  NOT NULL,
+   prenom VARCHAR(50)  NOT NULL,
+   email VARCHAR(50)  NOT NULL,
+   dateInscription DATETIME NOT NULL,
+   PRIMARY KEY(id)
+);
+
+CREATE TABLE Emprunts(
+   id INT,
+   dateEmprunts DATETIME NOT NULL,
+   dateRetourPrevu DATETIME NOT NULL,
+   dateRetourEffectue DATETIME NOT NULL,
+   id_1 INT NOT NULL,
+   PRIMARY KEY(id),
+   FOREIGN KEY(id_1) REFERENCES Bibliothecaire(id)
+);
+
+CREATE TABLE Auteur(
+   id INT,
+   nom VARCHAR(50)  NOT NULL,
+   prenom VARCHAR(50)  NOT NULL,
+   PRIMARY KEY(id)
+);
+
+CREATE TABLE Livre(
+   id INT,
+   nom VARCHAR(50)  NOT NULL,
+   reference VARCHAR(50)  NOT NULL,
+   anneePublication DATE,
+   genre VARCHAR(50)  NOT NULL,
+   disponible VARCHAR(50)  NOT NULL,
+   id_1 INT NOT NULL,
+   id_2 INT NOT NULL,
+   PRIMARY KEY(id),
+   FOREIGN KEY(id_1) REFERENCES Adherent(id),
+   FOREIGN KEY(id_2) REFERENCES Auteur(id)
+);
+
+CREATE TABLE Gérer_(
+   id INT,
+   id_1 INT,
+   PRIMARY KEY(id, id_1),
+   FOREIGN KEY(id) REFERENCES Livre(id),
+   FOREIGN KEY(id_1) REFERENCES Bibliothecaire(id)
+);

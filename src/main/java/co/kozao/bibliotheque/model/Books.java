@@ -1,9 +1,8 @@
 package co.kozao.bibliotheque.model;
 
-import java.awt.print.Book;
 import java.time.LocalDate;
 
-public class Books {
+public class Books implements Comparable<Books>{
 private int id;
 private String nom;
 private String reference;
@@ -74,17 +73,29 @@ public Books(int id, String nom, String reference, LocalDate anneePublication, S
 }
 //Comparable : tri naturel par nom
 @Override
-public int compareTo(Book other) {
+public int compareTo(Books other) {
     return this.nom.compareTo(other.nom);
 }
-
-// equals/hashCode : basés sur reference 
+//equals : deux livres identiques si même référence
 @Override
 public boolean equals(Object o) {
-    if (this == o) return true;
-    if (!(o instanceof Book)) return false;
-    Book book = (Book) o;
-    return reference.equals(book.reference);
+ if (this == o) return true;
+ if (!(o instanceof Books)) return false;
+ Books book = (Books) o;
+ return reference.equals(book.reference);
+}
+
+//hashCode : code de recherche rapide basé sur référence
+@Override
+public int hashCode() {
+ return reference.hashCode();
+}
+@Override
+public String toString() {
+	return "Books [id=" + id + ", nom=" + nom + ", reference=" + reference + ", anneePublication=" + anneePublication
+			+ ", genre=" + genre + ", disponible=" + disponible + ", idAdherent=" + idAdherent + ", idAuteur="
+			+ idAuteur + "]";
 }
 
 }
+

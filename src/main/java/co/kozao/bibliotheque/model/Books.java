@@ -74,7 +74,7 @@ public Books(int id, String nom, String reference, LocalDate anneePublication, S
 }
 //Comparable : tri naturel par nom
 @Override
-public int compareTo(Book other) {
+public int compareTo(Books other) {
     return this.nom.compareTo(other.nom);
 }
 

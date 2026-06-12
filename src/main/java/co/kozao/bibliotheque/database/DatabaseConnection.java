@@ -35,10 +35,10 @@ public class DatabaseConnection {
         try {
             if (connection != null && !connection.isClosed()) {
                 connection.close();
-                System.out.println("✓ Connexion fermée");
+                System.out.println(" Connexion fermée");
             }
         } catch (SQLException e) {
-            System.out.println("✗ Erreur fermeture : " + e.getMessage());
+            System.out.println(" Erreur fermeture : " + e.getMessage());
         }
     }
 }

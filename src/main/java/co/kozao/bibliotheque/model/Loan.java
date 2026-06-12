@@ -10,8 +10,13 @@ public class Loan {
 	private LocalDate plannedreturnDate;
 	private LocalDate actualReturnDate;
 	
-	public Loan(int id, Books book, String memberName, LocalDate loanDate, LocalDate plannedreturnDate, ) {
-		
+	public Loan(int id, Books book, String memberName, LocalDate loanDate, LocalDate plannedreturnDate, LocalDate actualReturnDate) {
+		this.id = id;
+		this.book = book;
+		this.memberName = memberName;
+		this.loanDate = loanDate;
+		this.plannedreturnDate = plannedreturnDate;
+		this.actualReturnDate = actualReturnDate;
 	}
 
 	public int getId() {

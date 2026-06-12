@@ -5,12 +5,12 @@ public class Loan {
 	
 	private int id;
 	private Books book;
-	private String borrowerName;
+	private String memberName;
 	private LocalDate loanDate;
-	private LocalDate plannedeturnDate;
+	private LocalDate plannedreturnDate;
 	private LocalDate actualReturnDate;
 	
-	public Loan() {
+	public Loan(int id, Books book, String memberName, LocalDate loanDate, LocalDate plannedreturnDate, ) {
 		
 	}
 
@@ -38,20 +38,20 @@ public class Loan {
 		this.loanDate = loanDate;
 	}
 
-	public String getBorrowerName() {
-		return borrowerName;
+	public String getMemberName() {
+		return memberName;
 	}
 
-	public void setBorrowerName(String borrowerName) {
-		this.borrowerName = borrowerName;
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
 	}
 
-	public LocalDate getPlannedeturnDate() {
-		return plannedeturnDate;
+	public LocalDate getPlannedreturnDate() {
+		return plannedreturnDate;
 	}
 
-	public void setPlannedeturnDate(LocalDate plannedeturnDate) {
-		this.plannedeturnDate = plannedeturnDate;
+	public void setPlannedeturnDate(LocalDate plannedreturnDate) {
+		this.plannedreturnDate = plannedreturnDate;
 	}
 
 	public LocalDate getActualReturnDate() {
